@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private bool groundedPlayer;
     private float playerSpeed = 10.0f;
     private float jumpHeight = 2.0f;
-    private float gravityValue = -9.81f;
+    private float gravityValue = -40.81f;
 
     private void Start()
     {
@@ -34,5 +34,14 @@ public class PlayerMovement : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            playerSpeed = 30f;
+        }
+        else
+        {
+            playerSpeed = 10f;
+        }
     }
 }
